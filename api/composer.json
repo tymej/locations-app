@@ -1,5 +1,5 @@
 {
-    "name": "shoper-interview/api",
+    "name": "tymej/locations-app",
     "type": "project",
     "autoload": {
         "psr-4": {
