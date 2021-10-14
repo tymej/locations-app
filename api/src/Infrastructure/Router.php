@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Localization\Infrastructure;
 
 use Localization\Infrastructure\Http\Request;
@@ -29,6 +31,7 @@ class Router
         }
 
         $controllerInstance = ServiceContainer::getInstance($route->controller);
+
         return $controllerInstance->{$route->controllerMethod}($request);
     }
 
@@ -36,8 +39,7 @@ class Router
     {
         $matchedRoutes = array_filter(
             self::$routes,
-            fn (Route $route) =>
-                (
+            fn (Route $route) => (
                     $route->endpoint === $request->getPath() || sscanf($request->getPath(), $route->endpoint)
                 )
                 && $route->method === $request->getMethod()

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Localization\Infrastructure\Container;
 
 use Localization\Infrastructure\Mapper\AddressMapper;
@@ -18,7 +20,7 @@ class DataMapperProvider extends AbstractContainer
 
         $this->setInstances(
             [
-                AddressMapper::class => new AddressMapper($pdo)
+                AddressMapper::class => new AddressMapper($pdo),
             ]
         );
     }

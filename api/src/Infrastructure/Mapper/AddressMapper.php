@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Localization\Infrastructure\Mapper;
 
 use Localization\Application\Entity\CompanyAddress;
@@ -70,7 +72,7 @@ class AddressMapper extends AbstractDataMapper
         return [
             'id' => $object->id,
             'street' => $object->street,
-            'city' => $object->city
+            'city' => $object->city,
         ];
     }
 }

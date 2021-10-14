@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Localization\Application\Command;
 
 use Localization\Application\Repository\CompanyAddressRepositoryInterface;
@@ -8,8 +10,7 @@ class RemoveCompanyAddress
 {
     public function __construct(
         private CompanyAddressRepositoryInterface $companyAddressRepository
-    )
-    {
+    ) {
     }
 
     public function handle(string $id): void

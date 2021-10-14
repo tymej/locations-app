@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Localization\Infrastructure\Router;
 
 class Route
@@ -16,8 +18,7 @@ class Route
         public string $controller,
         public string $controllerMethod,
         public string $method = self::METHOD_GET
-    )
-    {
+    ) {
         if (!in_array($method, self::ALLOWED_METHODS)) {
             throw new \RuntimeException(sprintf('Controller %s method not allowed', $method));
         }

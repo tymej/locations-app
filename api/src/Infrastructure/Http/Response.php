@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Localization\Infrastructure\Http;
 
 use JsonSerializable;
@@ -15,14 +17,13 @@ class Response
     public const HTTP_BAD_REQUEST = 400;
     public const HTTP_NOT_FOUND = 404;
 
-    const HEADER_ALLOW_ORIGIN = "Access-Control-Allow-Origin: *";
-    const H = "Access-Control-Allow-Headers: *";
+    const HEADER_ALLOW_ORIGIN = 'Access-Control-Allow-Origin: *';
+    const H = 'Access-Control-Allow-Headers: *';
 
     public function __construct(
         private JsonSerializable|array|string|null $content = '',
         private int $httpCode = self::HTTP_OK
-    )
-    {
+    ) {
     }
 
     public static function createNotFound(string $message = self::NOT_FOUND_DEFAULT_MESSAGE): self

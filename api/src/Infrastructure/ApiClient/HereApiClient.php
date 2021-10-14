@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Localization\Infrastructure\ApiClient;
 
 use Localization\Application\Api\Locations\Coordinates;
@@ -23,6 +25,7 @@ class HereApiClient extends AbstractApiClient implements LocationsClientInterfac
         }
 
         $element = $result['items'][0];
+
         return new Coordinates($element['position']['lat'], $element['position']['lng']);
     }
 }

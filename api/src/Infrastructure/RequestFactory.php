@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Localization\Infrastructure;
 
 use Localization\Infrastructure\Http\Request;

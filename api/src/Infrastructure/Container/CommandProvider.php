@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Localization\Infrastructure\Container;
 
 use Localization\Application\Api\LocationsClientInterface;
@@ -23,8 +25,8 @@ class CommandProvider extends AbstractContainer
             [
                 CreateCompanyAddress::class => new CreateCompanyAddress($companyAddressRepository),
                 EditCompanyAddress::class => new EditCompanyAddress($companyAddressRepository),
-                RemoveCompanyAddress::class =>new RemoveCompanyAddress($companyAddressRepository),
-                CalculateDistance::class => new CalculateDistance($locationsClient)
+                RemoveCompanyAddress::class => new RemoveCompanyAddress($companyAddressRepository),
+                CalculateDistance::class => new CalculateDistance($locationsClient),
             ]
         );
     }

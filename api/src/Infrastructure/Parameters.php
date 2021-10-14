@@ -1,8 +1,8 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Localization\Infrastructure;
-
 
 class Parameters
 {
@@ -23,13 +23,13 @@ class Parameters
         $envLines = file($secretsFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
         array_walk($envLines, function (string $line) {
-            if (mb_strpos(trim($line), '#') === 0) {
+            if (0 === mb_strpos(trim($line), '#')) {
                 return;
             }
 
             $keyValue = explode('=', $line);
 
-            if (!$keyValue || count($keyValue) !== 2) {
+            if (!$keyValue || 2 !== count($keyValue)) {
                 return;
             }
 

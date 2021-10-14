@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Localization\Infrastructure\Container;
 
 use Localization\Application\Repository\CompanyAddressRepositoryInterface;
@@ -16,7 +18,7 @@ class RepositoryProvider extends AbstractContainer
 
         $this->setInstances(
             [
-                CompanyAddressRepositoryInterface::class => new CompanyAddressRepository($addressMapper)
+                CompanyAddressRepositoryInterface::class => new CompanyAddressRepository($addressMapper),
             ]
         );
     }

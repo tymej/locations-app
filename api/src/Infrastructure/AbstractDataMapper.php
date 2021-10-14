@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Localization\Infrastructure;
 
 use Localization\Infrastructure\Exception\CannotCreateStatementException;
@@ -48,7 +50,6 @@ abstract class AbstractDataMapper
         $this->removeStatement()->execute([$id]);
     }
 
-
     protected function createStatement(string $sql, array $options = []): PDOStatement
     {
         $statement = $this->pdo->prepare($sql, $options);
@@ -61,10 +62,16 @@ abstract class AbstractDataMapper
     }
 
     abstract protected function findStatement(): PDOStatement;
+
     abstract protected function findAllStatement(): PDOStatement;
+
     abstract protected function insertStatement(): PDOStatement;
+
     abstract protected function updateStatement(): PDOStatement;
+
     abstract protected function removeStatement(): PDOStatement;
+
     abstract protected function toRaw(object $object): array;
+
     abstract protected function fromRaw(array $raw): object;
 }

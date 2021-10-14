@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Localization\Application\Command;
 
 use Localization\Application\Entity\CompanyAddress;
@@ -9,8 +11,7 @@ class CreateCompanyAddress
 {
     public function __construct(
         private CompanyAddressRepositoryInterface $companyAddressRepository
-    )
-    {
+    ) {
     }
 
     public function handle(string $id, string $street, string $city): void

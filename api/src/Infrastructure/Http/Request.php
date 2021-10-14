@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Localization\Infrastructure\Http;
 
 class Request
@@ -14,8 +16,7 @@ class Request
         private array|string $parsedUri,
         private ?array $headers,
         private ?string $body
-    )
-    {
+    ) {
         $this->jsonBody = $this->body ? json_decode($this->body, true) : [];
     }
 

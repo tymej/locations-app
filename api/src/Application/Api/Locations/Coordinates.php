@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Localization\Application\Api\Locations;
 
 class Coordinates
@@ -10,8 +12,7 @@ class Coordinates
     public function __construct(
         private float $latitude,
         private float $longitude
-    )
-    {
+    ) {
     }
 
     public function getLatitude(): float
@@ -24,7 +25,7 @@ class Coordinates
         return $this->longitude;
     }
 
-    public function kmDistanceTo(self $destinationCoordinates): int
+    public function kmDistanceTo(self $destinationCoordinates): float
     {
         $sourceLatDegrees = $this->latitude * self::ONE_DEGREE;
         $sourceLonDegrees = $this->longitude * self::ONE_DEGREE;
@@ -37,6 +38,6 @@ class Coordinates
                 cos($destinationLatDegrees) *
                 cos($sourceLatDegrees) *
                 cos($destinationLonDegrees - $sourceLonDegrees)
-            ) * self::EARTH_KM_RADIUS;
+        ) * self::EARTH_KM_RADIUS;
     }
 }

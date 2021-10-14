@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Localization\Infrastructure\Container;
 
 use Localization\Application\Api\LocationsClientInterface;
@@ -17,7 +19,7 @@ class ApiClientProvider extends AbstractContainer
 
         $this->setInstances(
             [
-                LocationsClientInterface::class => $hereApiClient
+                LocationsClientInterface::class => $hereApiClient,
             ]
         );
     }

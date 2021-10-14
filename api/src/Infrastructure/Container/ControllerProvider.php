@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Localization\Infrastructure\Container;
 
 use Localization\Application\Command\CalculateDistance;
@@ -35,7 +37,7 @@ class ControllerProvider extends AbstractContainer
                     $editCompanyAddress,
                     $removeCompanyAddress,
                     $calculateDistance
-                )
+                ),
             ]
         );
     }
