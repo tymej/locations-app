@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Locations app</title>
+    <meta charset="utf-8"/>
+</head>
+<body>
+    <div style="width:1000px; margin:0 auto;">
+        <table id="companies-addresses" style="margin: 10px; border: 1px solid black;">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Street</th>
+                <th>City</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td><input type="text" name="new-company-address-street" style="width: 90%;" /></td>
+                    <td><input type="text" name="new-company-address-city" style="width: 90%;" /></td>
+                    <td><button id="add-new-company-address" style="width: 90%;">Add new</button></td>
+                </tr>
+                <tr id="company-address-edit-row" style="display: none;">
+                    <td id="company-address-edit-id">
+                        <input type="text" name="edit-company-address-id" disabled style="width: 90%;"/>
+                    </td>
+                    <td id="company-address-edit-street">
+                        <input type="text" name="edit-company-address-street" style="width: 90%;"/>
+                    </td>
+                    <td id="company-address-edit-city">
+                        <input type="text" name="edit-company-address-city" style="width: 90%;"/>
+                    </td>
+                    <td>
+                        <button id="company-address-approve-edit" style="width: 90%;">Approve</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <form>
+            <div style="float: left; margin: 10px;">
+                <div>Distance from</div>
+                <label for="distance-from-street">Street</label><br>
+                <input type="text" id="distance-from-street" name="distance-from-street"><br>
+                <label for="distance-from-city">City</label><br>
+                <input type="text" id="distance-from-city" name="distance-from-city">
+            </div>
+            <div style="float: left; margin: 10px;">
+                <div>Distance to</div>
+                <select id="distance-to" style="margin: 10px;">
+                </select>
+                <div style="margin: 10px;"><button id="receive-distance-button">Receive</button></div>
+            </div>
+            <div style="float: left; margin: 10px;">
+                <div>Result: <span id="calculate-distance-result"></span></div>
+            </div>
+        </form>
+    </div>
+    <script src="js/index.js" type="module"></script>
+</body>
+</html> 
