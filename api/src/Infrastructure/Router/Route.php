@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Localization\Infrastructure\Router;
 
+use RuntimeException;
+
 class Route
 {
     public const METHOD_GET = 'GET';
@@ -20,15 +22,15 @@ class Route
         public string $method = self::METHOD_GET
     ) {
         if (!in_array($method, self::ALLOWED_METHODS)) {
-            throw new \RuntimeException(sprintf('Controller %s method not allowed', $method));
+            throw new RuntimeException(sprintf('Controller %s method not allowed', $method));
         }
 
         if (!class_exists($controller)) {
-            throw new \RuntimeException(sprintf('Controller %s does not exist', $controller));
+            throw new RuntimeException(sprintf('Controller %s does not exist', $controller));
         }
 
         if (!method_exists($controller, $controllerMethod)) {
-            throw new \RuntimeException(sprintf('Method %s of controller %s does not exist', $controller, $method));
+            throw new RuntimeException(sprintf('Method %s of controller %s does not exist', $controller, $method));
         }
     }
 }

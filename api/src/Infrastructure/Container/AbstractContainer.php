@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Localization\Infrastructure\Container;
 
 use Localization\Infrastructure\ContainerInterface;
+use RuntimeException;
 
 abstract class AbstractContainer implements ContainerInterface
 {
@@ -25,7 +26,7 @@ abstract class AbstractContainer implements ContainerInterface
     public function getInstance(string $id): object
     {
         if (!$this->hasInstance($id)) {
-            throw new \RuntimeException(sprintf('Dependency %s does not exist', $id));
+            throw new RuntimeException(sprintf('Dependency %s does not exist', $id));
         }
 
         return $this->instances[$id];

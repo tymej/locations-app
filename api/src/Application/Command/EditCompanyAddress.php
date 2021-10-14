@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Localization\Application\Command;
 
 use Localization\Application\Repository\CompanyAddressRepositoryInterface;
+use RuntimeException;
 
 class EditCompanyAddress
 {
@@ -18,7 +19,7 @@ class EditCompanyAddress
         $companyAddress = $this->companyAddressRepository->find($id);
 
         if (!$companyAddress) {
-            throw new \RuntimeException(sprintf('Company address %s does not exist', $id));
+            throw new RuntimeException(sprintf('Company address %s does not exist', $id));
         }
 
         $companyAddress->street = $street;

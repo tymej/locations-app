@@ -71,6 +71,6 @@ class Request
     {
         $ids = $this->filterUuid();
 
-        return end($ids) ?? null;
+        return end($ids) ?: null;
     }
 }

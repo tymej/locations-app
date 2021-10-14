@@ -33,7 +33,14 @@ class AddressController
 
     public function findAction(Request $request): Response
     {
-        return new Response($this->addressRepository->find($request->findLastUuid()));
+        $id = $request->findLastUuid();
+        $address = $this->addressRepository->find($id);
+
+        if (!$address) {
+            return Response::createNotFound(sprintf('Location %s does not exist', $id));
+        }
+
+        return new Response($address);
     }
 
     public function createAction(Request $request): Response
@@ -41,7 +48,7 @@ class AddressController
         $id = Uuid::generate();
 
         if (!$this->locationRequestValidator->isValid($request)) {
-            Response::createBadRequest('Invalid request params');
+            return Response::createBadRequest('Invalid request params');
         }
 
         $this->createCompanyAddress->handle(
@@ -58,7 +65,7 @@ class AddressController
         $id = $request->findLastUuid();
 
         if (!$this->locationRequestValidator->isValid($request) || !$this->addressRepository->find($id)) {
-            Response::createBadRequest('Invalid request params');
+            return Response::createBadRequest('Invalid request params');
         }
 
         $this->editCompanyAddress->handle(
@@ -85,7 +92,7 @@ class AddressController
         $companyAddress = $this->addressRepository->find($companyAddressId);
 
         if (!$this->locationRequestValidator->isValid($request) || !$companyAddress) {
-            Response::createBadRequest('Invalid request params');
+            return Response::createBadRequest('Invalid request params');
         }
 
         $destinationStreet = $request->getJsonBodyValue('street');
@@ -96,7 +103,9 @@ class AddressController
         }
 
         return new Response(
-            ['kilometers' => $this->calculateDistance->handle($companyAddress, $destinationStreet, $destinationCity)]
+            [
+                'kilometers' => $this->calculateDistance->handle($companyAddress, $destinationStreet, $destinationCity)
+            ]
         );
     }
 }
