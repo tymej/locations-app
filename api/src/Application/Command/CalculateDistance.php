@@ -14,7 +14,7 @@ class CalculateDistance
     ) {
     }
 
-    public function handle(CompanyAddress $companyAddress, string $destinationStreet, string $destinationCity): float
+    public function handle(CompanyAddress $companyAddress, string $destinationStreet, string $destinationCity, int $precision = 2): float
     {
         $companyCoordinates = $this->locationsClient->receiveCoordinates(
             $companyAddress->street,
@@ -26,6 +26,6 @@ class CalculateDistance
             $destinationCity
         );
 
-        return $companyCoordinates->kmDistanceTo($destinationCoordinates);
+        return round($companyCoordinates->kmDistanceTo($destinationCoordinates), $precision);
     }
 }

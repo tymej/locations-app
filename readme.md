@@ -27,6 +27,3 @@ Containers infrastructure:
 
 ### Code quality tools
 * fixer `./vendor/bin/php-cs-fixer fix src`
-* fixer `./vendor/bin/psalm src`
-
-
