@@ -1,6 +1,6 @@
 FROM php:8.0-fpm
 
-RUN apt update && apt -y install git && docker-php-ext-install curl mbstring pdo pdo_mysql
+RUN apt update && apt -y install git && docker-php-ext-install pdo pdo_mysql
 
 WORKDIR /var/www/html
 
