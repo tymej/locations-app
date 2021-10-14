@@ -11,8 +11,7 @@ class CompanyAddress implements JsonSerializable
     public function __construct(
         public string $id,
         public string $street,
-        public string $city,
-        public string $country = 'Poland'
+        public string $city
     ) {
     }
 
