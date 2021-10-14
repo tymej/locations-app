@@ -34,6 +34,7 @@ class AddressController
     public function findAction(Request $request): Response
     {
         $id = $request->findLastUuid();
+
         $address = $this->addressRepository->find($id);
 
         if (!$address) {
