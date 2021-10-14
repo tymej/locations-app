@@ -1,6 +1,8 @@
 # Locations app
 #### Store addresses and calculate distances
 
+![Screenshot](media/client.png)
+
 [Api endpoints](api/endpoints.md)
 
 ## Development
