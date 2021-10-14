@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Localization\Tests\Application\Command;
 
 use Generator;
@@ -42,16 +44,16 @@ class CalculateDistanceTest extends TestCase
         yield [
             $this->mockCompanyAddress(),
             ...$this->createFlatAddress(),
-            new Coordinates(53.4238586,14.55556213),
+            new Coordinates(53.4238586, 14.55556213),
             new Coordinates(53.441142, 14.563973),
-            2.0
+            2.0,
         ];
         yield [
             $this->mockCompanyAddress(),
             ...$this->createFlatAddress(),
             new Coordinates(53.436160, 14.513382),
             new Coordinates(50.068628, 19.902706),
-            526.83
+            526.83,
         ];
     }
 
@@ -60,6 +62,7 @@ class CalculateDistanceTest extends TestCase
         $address = $this->prophesize(CompanyAddress::class);
         $address->street = 'some test street';
         $address->city = 'some test city';
+
         return $address->reveal();
     }
 

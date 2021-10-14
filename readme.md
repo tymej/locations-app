@@ -1,6 +1,8 @@
 # Locations app
 #### Store addresses and calculate distances
 
+[Api endpoints](api/endpoints.md)
+
 ## Development
 Containers infrastructure:
 * api - `php-fpm/mysql/nginx`
@@ -26,4 +28,4 @@ Containers infrastructure:
 *  units `./vendor/bin/phpunit tests`
 
 ### Code quality tools
-* fixer `./vendor/bin/php-cs-fixer fix src`
+* fixer `./vendor/bin/php-cs-fixer fix --allow-risky=yes`
